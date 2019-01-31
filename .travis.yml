@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.6"
+addons:
+  postgresql: "9.5"
+services:
+  - postgresql
+# command to install dependencies
+install:
+  - 'pip install pipenv'
+  - 'pipenv sync'
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+# to start the test
+script:
+  - pytest

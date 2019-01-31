@@ -1,13 +1,17 @@
+import os
+
 from flask import Flask, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
-from project.config import Config
+from project.config import DevelopmentConfig, ProductionConfig
 
 db = SQLAlchemy()
 
 # App Factory
-def create_app(config_class=Config):
+def create_app(config_class=DevelopmentConfig):
     app = Flask(__name__)
+    if "ZAPPA" in os.environ and os.environ["ZAPPA"] == "True":
+        config_class = ProductionConfig
     app.config.from_object(config_class)
 
     with app.app_context():
