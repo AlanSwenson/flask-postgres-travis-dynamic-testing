@@ -1,0 +1,18 @@
+{
+    "dev": {
+        "app_function": "run.app",
+        "aws_region": "us-east-2",
+        "profile_name": "default",
+        "project_name": "project",
+        "runtime": "python3.6",
+        "s3_bucket": "zappa-flask-db-example",
+        "aws_environment_variables" :
+        {
+            "POSTGRES_USER": "acutal_postgres_username",
+            "POSTGRES_PW" : "acutal_postgres_password",
+            "POSTGRES_URL" : "acutal_postgres_url",
+            "POSTGRES_DB" :"acutal_postgres_db_name"
+        },
+        }
+
+}
